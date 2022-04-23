@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useRoutes } from "react-router-dom";
+import { Provider } from "react-redux";
+import { ThemeProvider } from "styled-components";
 
-function App() {
+import Layout from "./Layout/Layout";
+import routes from "./Pages/routes";
+import store from "./Store/store";
+import { theme } from "Theme/theme";
+
+const App = () => {
+  const router = useRoutes(routes);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <Layout>{router}</Layout>
+      </ThemeProvider>
+    </Provider>
   );
-}
+};
 
 export default App;
