@@ -1,12 +1,18 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Avatar from "Components/Avatar/Avatar";
+import { ThemeProvider } from "styled-components";
+import { theme } from "Theme/theme";
 
 export default {
   title: "Avatar",
   component: Avatar,
 } as ComponentMeta<typeof Avatar>;
 
-const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
+const Template: ComponentStory<typeof Avatar> = (args) => (
+  <ThemeProvider theme={theme}>
+    <Avatar {...args} />
+  </ThemeProvider>
+);
 
 export const Large = Template.bind({});
 Large.args = {

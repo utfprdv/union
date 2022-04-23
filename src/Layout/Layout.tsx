@@ -1,15 +1,23 @@
+import React from "react";
+import styled from "styled-components";
 import Navigation from "../Components/Navigation/Navigation";
+import { LayoutWrapper } from "./Layout.style";
 
 type LayoutProps = {
   children: React.ReactNode;
 };
 
-const Layout = ({ children }: LayoutProps) => {
+const Content = styled.div`
+  flex: 1 1 90%;
+  overflow: auto;
+`;
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div>
-      {children}
+    <LayoutWrapper>
+      <Content>{children}</Content>
       <Navigation />
-    </div>
+    </LayoutWrapper>
   );
 };
 

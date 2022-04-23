@@ -1,14 +1,14 @@
-import { RouteObject } from "react-router-dom";
+import { Outlet, RouteObject } from "react-router-dom";
+import Home from "./Home/Home";
 
 const routes: RouteObject[] = [
   {
-    path: "/",
-    element: <h1>Layout</h1>,
+    path: "",
+    element: <Outlet />,
     children: [
       {
         path: "",
-        index: true,
-        element: <h1>Home</h1>,
+        element: <Home />,
       },
       {
         path: "forum",
