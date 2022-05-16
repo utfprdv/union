@@ -1,5 +1,8 @@
 import { Outlet, RouteObject } from "react-router-dom";
+import Forum from "./Forum/Forum";
+import Forums from "./Forums/Forums";
 import Home from "./Home/Home";
+import Profile from "./Profile/Profile";
 
 const routes: RouteObject[] = [
   {
@@ -12,25 +15,19 @@ const routes: RouteObject[] = [
       },
       {
         path: "forum",
-        element: <h1>Forum</h1>,
+        element: <Forums />,
+      },
+      {
+        path: "forum/:forumId",
+        element: <Forum />,
       },
       {
         path: "perfil",
-        element: <h1>Perfil</h1>,
-        children: [
-          {
-            path: "",
-            element: <h2>Publicacoes</h2>,
-          },
-          {
-            path: "projetos",
-            element: <h2>Projetos</h2>,
-          },
-          {
-            path: "experiencias",
-            element: <h2>Experiencias</h2>,
-          },
-        ],
+        element: <Profile />,
+      },
+      {
+        path: "perfil/:perfilId",
+        element: <Profile />,
       },
     ],
   },

@@ -15,17 +15,37 @@ const NavigationWrapper = styled.nav`
   box-shadow: 0 16px 24px 0px #000;
 `;
 
-const NavigationButton = styled.button<{ isActive: boolean }>`
+export const NavigationButton = styled.button<{
+  isActive: boolean;
+  secondary?: boolean;
+}>`
   display: flex;
   align-items: center;
   font-weight: 700;
   gap: 0.5em;
-  background: ${(props) =>
-    props.isActive ? props.theme.color.brand : "transparent"};
+  font-size: ${(props) => (props.secondary ? "0.8125em" : "1em")};
+  background: ${(props) => {
+    if (props.isActive && props.secondary) {
+      return props.theme.color.brandSecondary;
+    }
+    if (props.secondary) {
+      return props.theme.color.divider;
+    }
+    return props.isActive ? props.theme.color.brand : "transparent";
+  }};
   border: 0;
-  padding: 1em 2em;
+  padding: ${(props) => (props.secondary ? "1em 1.3em" : "1em 2em")};
   border-radius: 40px;
-  color: ${(props) => props.theme.color.body};
+  color: ${(props) => {
+    if (props.isActive && props.secondary) {
+      return "white";
+    }
+    if (props.secondary) {
+      return props.theme.color.fadedCopy;
+    }
+    return props.theme.color.body;
+  }};
+
   & > svg {
     width: 20px;
   }

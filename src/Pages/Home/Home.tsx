@@ -3,7 +3,7 @@ import Post from "Components/Post/Post";
 import styled from "styled-components";
 import posts from "./Home.fixture.json";
 
-const HomeHeader = styled.header`
+export const HomeHeader = styled.header`
   background: ${(props) => props.theme.color.brandSecondary};
 
   & > h1 {
@@ -14,7 +14,7 @@ const HomeHeader = styled.header`
   }
 `;
 
-const UserPostEditor = styled.div`
+export const UserPostEditor = styled.div`
   background: ${(props) => props.theme.color.cardBackground};
   padding: 2em;
   margin: 0 0.5em;
